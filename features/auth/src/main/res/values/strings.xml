@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login">Masuk</string>
+    <string name="address">Jl. Gajah Mada No. 107 RT. 11 RW. 12, Kec. Titian Antui Kecamatan Pinggir, Kabupaten bengkalis</string>
+    <string name="password">Password</string>
+    <string name="hint_password">Masukan Password</string>
+    <string name="nisn">NISN</string>
+    <string name="hint_nisn">Masukan Nisn</string>
+</resources>
