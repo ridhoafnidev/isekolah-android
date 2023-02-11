@@ -8,6 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import com.smpsantoyosef.common.utils.NavRoute
 import com.smpsantoyosef.feature.auth.ui.screen.login.LoginScreen
 import com.smpsantoyosef.feature.auth.ui.screen.register.RegisterScreen
+import com.smpsantoyosef.feature.note.NoteScreen
 import com.smpsantoyosef.home.HomeScreen
 
 @Composable
@@ -27,7 +28,7 @@ fun AppNavigation() {
             RegisterScreen(navController)
         }
         composable(NavRoute.noteScreen){
-            RegisterScreen(navController)
+            NoteScreen(navController)
         }
         composable(NavRoute.scoreScreen){
             RegisterScreen(navController)

@@ -2,4 +2,5 @@
 <resources>
     <string name="image_profile">Image Profile</string>
     <string name="welcome">Selamat Datang</string>
+    <string name="all_menu">Semua Menu</string>
 </resources>

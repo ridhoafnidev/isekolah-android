@@ -11,6 +11,8 @@ internal object Dependencies {
     const val materialIconCore = "androidx.compose.material:material-icons-core"
     const val materialIconExtended = "androidx.compose.material:material-icons-extended"
     const val composeConstraintLayout = "androidx.constraintlayout:constraintlayout-compose:${Versions.composeConstraintLayout}"
+    const val composePager = "com.google.accompanist:accompanist-pager:${Versions.pagerComposeVersion}"
+    const val composePagerIndicator = "com.google.accompanist:accompanist-pager-indicators:${Versions.pagerIndicatorComposeVersion}"
 
     const val composeNavigation = "androidx.navigation:navigation-compose:${Versions.composeNavigationVersion}"
     const val composePreviewUi = "androidx.compose.ui:ui-tooling-preview"

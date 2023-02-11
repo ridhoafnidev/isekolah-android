@@ -1,3 +1,5 @@
+import dependencies.addDataModule
+
 plugins {
     plugins.`android-feature-library`
 }
@@ -7,4 +9,5 @@ android {
 }
 
 dependencies {
+    addDataModule()
 }

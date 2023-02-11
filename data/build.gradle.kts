@@ -1,4 +1,5 @@
 import dependencies.addApiResponseModule
+import dependencies.addCommonModule
 import dependencies.addDiModule
 import dependencies.addDomainModule
 
@@ -14,4 +15,5 @@ dependencies {
     addApiResponseModule(configurationName = "api")
     addDiModule()
     addDomainModule()
+    addCommonModule()
 }

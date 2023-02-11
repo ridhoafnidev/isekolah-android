@@ -12,6 +12,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawWithCache
+import androidx.compose.ui.draw.scale
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -55,7 +57,7 @@ fun VisiMisi(
         Column(modifier = modifier.padding(20.dp)) {
             Text(text = "Visi & Misi", fontSize = 32.sp, color = White, fontFamily = fontMedium, fontWeight = FontWeight.Bold)
             Text(text = "“Berakhlak Mulia, Berprestasi, \nBerbasis Lingkungan”", fontSize = 14.sp, color = White, fontFamily = fontRegular, modifier = Modifier.padding(top = 12.dp))
-            BaseButton(text = "Selengkapnya", color = Primary50, textColor = Primary, modifier = Modifier.padding(top = 20.dp), contentPaddingVer=2.dp) {
+            BaseButton(text = "Selengkapnya", color = Primary50, textColor = Primary, sizeCorner = 8.dp, modifier = Modifier.padding(top = 20.dp), contentPaddingVer=2.dp) {
             }
         }
     }

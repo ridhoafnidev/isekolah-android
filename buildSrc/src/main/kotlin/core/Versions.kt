@@ -9,6 +9,8 @@ internal object Versions {
     const val coreKtxVersion = "1.8.0"
     const val materialVersion = "1.3.1"
     const val activityComposeVersion = "1.6.1"
+    const val pagerComposeVersion = "0.13.0"
+    const val pagerIndicatorComposeVersion = "0.13.0"
 
     //endrefion
     //region retrofit
