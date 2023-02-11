@@ -24,14 +24,12 @@ fun TabContentScreen(
         verticalArrangement = Arrangement.Top
     ) {
         when {
-            tabType == TabType.HISTORY && pager == 0 -> {
+            (tabType == TabType.HISTORY || tabType == TabType.SCORE) && pager == 0 -> {
                 contentOne()
             }
-            tabType == TabType.HISTORY && pager == 1 -> {
+            (tabType == TabType.HISTORY || tabType == TabType.SCORE) && pager == 1 -> {
                 contentTwo()
             }
-            tabType == TabType.SCORE && pager == 0 -> {}
-            tabType == TabType.SCORE && pager == 1 -> {}
         }
     }
 }
