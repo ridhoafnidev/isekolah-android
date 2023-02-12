@@ -4,6 +4,7 @@ import com.smpsantoyosef.common.R
 import com.smpsantoyosef.entity.Menu
 import com.smpsantoyosef.entity.Absent
 import com.smpsantoyosef.entity.Note
+import com.smpsantoyosef.entity.Score
 
 object DummyDatasource {
     fun generateMenus() = arrayListOf<Menu>(
@@ -28,5 +29,22 @@ object DummyDatasource {
         Note(day = "Kamis", date = "04-01-2023", "Bolos sekolah"),
         Note(day = "Jumat", date = "05-01-2023", "Melawan dengan wali kelas"),
         Note(day = "Sabtu", date = "06-01-2023", "Tidak mengerjakan PR dari guru"),
+    )
+
+    fun generateScore() = arrayListOf<Score>(
+        Score("Mata Pelajaran", "Ilmu Pengetahuan Alam"),
+        Score("Mata Pelajaran", "Matematika"),
+        Score("Mata Pelajaran", "Matematika"),
+        Score("Mata Pelajaran", "Matematika"),
+        Score("Mata Pelajaran", "Matematika"),
+        Score("Mata Pelajaran", "Matematika"),
+        Score("Mata Pelajaran", "Matematika"),
+        Score("Mata Pelajaran", "Matematika"),
+        Score("Mata Pelajaran", "Matematika"),
+        Score("Mata Pelajaran", "Matematika"),
+        Score("Mata Pelajaran", "Matematika"),
+        Score("Mata Pelajaran", "Matematika"),
+        Score("Mata Pelajaran", "Matematika"),
+        Score("Mata Pelajaran", "Matematika"),
     )
 }
