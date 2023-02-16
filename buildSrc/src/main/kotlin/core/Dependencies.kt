@@ -57,4 +57,9 @@ internal object Dependencies {
     const val roomCompiler = "androidx.room:room-compiler:${Versions.roomCompiler}"
     const val roomKtx = "androidx.room:room-ktx:${Versions.roomKtx}"
 
+    //map
+    const val maps = "com.google.maps.android:maps-compose:${Versions.maps}"
+    const val mapServices = "com.google.android.gms:play-services-maps:${Versions.mapsServices}"
+    const val serviceLocation = "com.google.android.gms:play-services-location:${Versions.serviceLocation}"
+
 }

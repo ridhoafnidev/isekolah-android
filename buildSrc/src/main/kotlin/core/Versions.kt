@@ -72,6 +72,13 @@ internal object Versions {
     const val roomCompiler = "2.4.3"
     const val roomKtx = "2.4.3"
 
-    //eendregion
+    //endregion
+    //region maps
+
+    const val maps = "2.4.0"
+    const val mapsServices = "18.1.0"
+    const val serviceLocation = "20.0.0"
+
+    //endregion
 
 }

@@ -18,19 +18,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage
-import coil.request.ImageRequest
 import com.smpsantoyosef.common.ui.theme.fontMedium
 import com.smpsantoyosef.common.ui.theme.fontRegular
 import com.smpsantoyosef.home.R
-import com.smpsantoyosef.isekolah.ui.theme.Neutra300
-import com.smpsantoyosef.isekolah.ui.theme.Neutra900
+import com.smpsantoyosef.isekolah.ui.theme.Neutral300
+import com.smpsantoyosef.isekolah.ui.theme.Neutral900
 import com.smpsantoyosef.common.R as commonR
 
 @Composable
@@ -67,7 +64,7 @@ fun HomeProfile(
             Text(
                 text = stringResource(R.string.welcome),
                 fontFamily = fontRegular,
-                color = Neutra300,
+                color = Neutral300,
                 fontSize = 14.sp
             )
             Text(
@@ -76,7 +73,7 @@ fun HomeProfile(
                     .padding(top = 4.dp, end = 8.dp),
                 text = stringResource(R.string.welcome),
                 fontFamily = fontMedium,
-                color = Neutra900,
+                color = Neutral900,
                 fontSize = 20.sp
             )
         }

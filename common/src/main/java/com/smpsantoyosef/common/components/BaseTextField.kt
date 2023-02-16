@@ -14,8 +14,8 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -30,8 +30,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.smpsantoyosef.common.ui.theme.fontLight
 import com.smpsantoyosef.isekolah.ui.theme.Gray
-import com.smpsantoyosef.isekolah.ui.theme.Neutra400
-import com.smpsantoyosef.isekolah.ui.theme.Neutra900
+import com.smpsantoyosef.isekolah.ui.theme.Neutral400
+import com.smpsantoyosef.isekolah.ui.theme.Neutral900
 import com.smpsantoyosef.isekolah.ui.theme.Placeholder
 import com.smpsantoyosef.isekolah.ui.theme.Primary
 
@@ -51,7 +51,7 @@ fun BaseTextField(
             text = title,
             fontFamily = fontLight,
             fontSize = 16.sp,
-            color = Neutra900,
+            color = Neutral900,
             fontWeight = FontWeight.Bold
         )
         OutlinedTextField(
@@ -65,7 +65,7 @@ fun BaseTextField(
             ),
             shape = RoundedCornerShape(8.dp),
             placeholder = {
-                Text(text = placeholder, fontFamily = fontLight, fontSize = 14.sp, color = Neutra400)
+                Text(text = placeholder, fontFamily = fontLight, fontSize = 14.sp, color = Neutral400)
             },
             onValueChange = { onValueChange(it) },
             textStyle = TextStyle.Default.copy(fontFamily = fontLight, fontSize = 14.sp),

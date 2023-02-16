@@ -22,7 +22,8 @@ import com.smpsantoyosef.entity.Menu
 import com.smpsantoyosef.entity.Note
 import com.smpsantoyosef.feature.note.R
 import com.smpsantoyosef.isekolah.ui.theme.Divider
-import com.smpsantoyosef.isekolah.ui.theme.Neutra300
+import com.smpsantoyosef.isekolah.ui.theme.Neutral100
+import com.smpsantoyosef.isekolah.ui.theme.Neutral300
 
 @Composable
 fun <T>ItemNoteHistory(
@@ -34,7 +35,7 @@ fun <T>ItemNoteHistory(
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .border(width = 1.dp, color = Neutra300, shape = RoundedCornerShape(8.dp))
+            .border(width = 1.dp, color = Neutral100, shape = RoundedCornerShape(8.dp))
             .clip(shape = RoundedCornerShape(8.dp))
             .clickable { onItemClick },
     ) {
@@ -46,7 +47,7 @@ fun <T>ItemNoteHistory(
         ) {
             BaseText(
                 text = stringResource(R.string.day_date),
-                fontColor = Neutra300,
+                fontColor = Neutral300,
                 fontSize = 12.sp,
                 modifier = modifier.fillMaxWidth()
             )
@@ -64,7 +65,7 @@ fun <T>ItemNoteHistory(
             )
             BaseText(
                 text = stringResource(R.string.note_type),
-                fontColor = Neutra300,
+                fontColor = Neutral300,
                 fontSize = 12.sp,
                 modifier = modifier
                     .fillMaxWidth()

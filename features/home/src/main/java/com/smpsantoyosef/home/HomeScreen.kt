@@ -53,7 +53,7 @@ fun HomeScreen(
                         onItemClick = { menu ->
                             when(menu.title) {
                                 "Absensi" -> {
-
+                                    navController.navigate(NavRoute.absentScreen)
                                 }
                                 "Catatan" -> {
                                     navController.navigate(NavRoute.noteScreen)

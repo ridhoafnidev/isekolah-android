@@ -12,21 +12,18 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.smpsantoyosef.common.components.BaseButton
 import com.smpsantoyosef.common.components.BaseText
 import com.smpsantoyosef.common.components.FontType
 import com.smpsantoyosef.entity.Menu
 import com.smpsantoyosef.entity.Absent
-import com.smpsantoyosef.isekolah.ui.theme.ISekolahTheme
-import com.smpsantoyosef.isekolah.ui.theme.Neutra300
+import com.smpsantoyosef.isekolah.ui.theme.Neutral100
+import com.smpsantoyosef.isekolah.ui.theme.Neutral300
 import com.smpsantoyosef.isekolah.ui.theme.Primary
 import com.smpsantoyosef.isekolah.ui.theme.White
 
@@ -40,7 +37,7 @@ fun <T>ItemAbsentHistory(
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .border(width = 1.dp, color = Neutra300, shape = RoundedCornerShape(8.dp))
+            .border(width = 1.dp, color = Neutral100, shape = RoundedCornerShape(8.dp))
             .clip(shape = RoundedCornerShape(8.dp))
             .clickable { onItemClick },
     ) {
@@ -55,7 +52,7 @@ fun <T>ItemAbsentHistory(
             ) {
                 BaseText(
                     text = absent.day,
-                    fontColor = Neutra300
+                    fontColor = Neutral300
                 )
                 BaseText(
                     text = absent.date,

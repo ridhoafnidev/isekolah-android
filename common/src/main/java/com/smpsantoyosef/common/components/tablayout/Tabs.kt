@@ -15,7 +15,7 @@ import com.smpsantoyosef.isekolah.ui.theme.White
 import kotlinx.coroutines.launch
 import com.smpsantoyosef.common.components.BaseText
 import com.smpsantoyosef.common.utils.NoRippleInteractionSource
-import com.smpsantoyosef.isekolah.ui.theme.Neutra500
+import com.smpsantoyosef.isekolah.ui.theme.Neutral500
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
@@ -38,7 +38,7 @@ fun Tabs(pagerState: PagerState, menus: List<String>) {
                 text = {
                   BaseText(
                       text = menus[index],
-                      fontColor = if (pagerState.currentPage == index) Primary else Neutra500,
+                      fontColor = if (pagerState.currentPage == index) Primary else Neutral500,
                   )
                 },
                 selected = pagerState.currentPage == index,

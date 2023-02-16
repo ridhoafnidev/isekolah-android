@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.sp
 import com.smpsantoyosef.common.ui.theme.fontLight
 import com.smpsantoyosef.common.ui.theme.fontMedium
 import com.smpsantoyosef.common.ui.theme.fontRegular
-import com.smpsantoyosef.isekolah.ui.theme.Neutra900
+import com.smpsantoyosef.isekolah.ui.theme.Neutral900
 
 @Composable
 fun BaseText(
@@ -18,7 +18,7 @@ fun BaseText(
     text: String = "",
     fontFamily: FontType = FontType.REGULAR,
     fontSize: TextUnit = 14.sp,
-    fontColor: Color = Neutra900,
+    fontColor: Color = Neutral900,
     fontWeight: FontWeight = FontWeight.Normal
 ) {
     Text(
