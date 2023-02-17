@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -31,7 +32,7 @@ fun HomeScreen(
 ) {
     Column(
         modifier = Modifier.padding(16.dp)
-    ) {
+    ){
         HomeProfile(modifier = Modifier.padding(top = 16.dp))
         VisiMisi(modifier = Modifier.padding(top = 24.dp))
         BaseText(
@@ -52,18 +53,10 @@ fun HomeScreen(
                         menu = menu,
                         onItemClick = { menu ->
                             when(menu.title) {
-                                "Absensi" -> {
-                                    navController.navigate(NavRoute.absentScreen)
-                                }
-                                "Catatan" -> {
-                                    navController.navigate(NavRoute.noteScreen)
-                                }
-                                "Nilai" -> {
-
-                                }
-                                "Ujian" -> {
-
-                                }
+                                "Absensi" -> navController.navigate(NavRoute.absentScreen)
+                                "Catatan" -> navController.navigate(NavRoute.noteScreen)
+                                "Nilai" -> {}
+                                "Ujian" -> {}
                             }
                         }
                     )
@@ -76,5 +69,7 @@ fun HomeScreen(
 @Composable
 fun HomeScreenPreview() {
     val navHostController = rememberNavController()
-    HomeScreen(navHostController)
+    Surface() {
+        HomeScreen(navHostController)
+    }
 }
