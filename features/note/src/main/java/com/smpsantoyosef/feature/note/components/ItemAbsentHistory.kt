@@ -70,19 +70,6 @@ fun <T>ItemAbsentHistory(
                 BaseText(text= absent.status.uppercase(), fontColor = White, modifier = modifier.padding(horizontal = 12.dp, vertical = 2.dp))
             }
         }
-
-        /*BaseButton(
-            text = absent.status.uppercase(),
-            color = Primary,
-            textColor = White,
-            sizeCorner = 8.dp,
-            contentPaddingVer = 0.dp,
-            contentPaddingHor = 12.dp,
-            modifier = Modifier
-                .align(Alignment.TopEnd)
-                .padding(top = 12.dp, end = 16.dp)
-                .clickable(enabled = true) {}) {}*/
-
     }
 }
 

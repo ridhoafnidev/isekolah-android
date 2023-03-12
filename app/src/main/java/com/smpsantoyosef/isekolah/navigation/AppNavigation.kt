@@ -1,6 +1,5 @@
 package com.smpsantoyosef.isekolah.navigation
 
-import android.net.wifi.hotspot2.pps.HomeSp
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -9,8 +8,13 @@ import com.smpsantoyosef.common.utils.NavRoute
 import com.smpsantoyosef.feature.absent.AbsentScreen
 import com.smpsantoyosef.feature.auth.ui.screen.login.LoginScreen
 import com.smpsantoyosef.feature.auth.ui.screen.register.RegisterScreen
+import com.smpsantoyosef.feature.exam.DetailExamPage
+import com.smpsantoyosef.feature.exam.ListExamPage
+import com.smpsantoyosef.feature.exam.TestPage
+import com.smpsantoyosef.feature.exam.TokenPage
 import com.smpsantoyosef.feature.note.NoteScreen
 import com.smpsantoyosef.home.HomeScreen
+import com.smpsantoyosef.score.components.ScoreScreen
 
 @Composable
 fun AppNavigation() {
@@ -32,10 +36,22 @@ fun AppNavigation() {
             NoteScreen(navController)
         }
         composable(NavRoute.scoreScreen){
-            RegisterScreen(navController)
+            ScoreScreen(navController)
         }
-        composable(NavRoute.examScreen){
-            RegisterScreen(navController)
+        composable(NavRoute.listExamScreen){
+            ListExamPage(navController)
+        }
+        composable(NavRoute.detailExamScreen){
+            DetailExamPage(navController)
+        }
+        composable(NavRoute.detailExamScreen){
+            DetailExamPage(navController)
+        }
+        composable(NavRoute.tokeExamScreen){
+            TokenPage(navController)
+        }
+        composable(NavRoute.testExamScreen){
+            TestPage(navController)
         }
     }
 }

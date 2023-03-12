@@ -1,5 +1,9 @@
 package com.smpsantoyosef.isekolah.ui.theme
 
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material.Colors
+import androidx.compose.material3.ColorScheme
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 val Purple80 = Color(0xFFD0BCFF)
@@ -21,3 +25,8 @@ val Neutral400 = Color(0xFF979797)
 val Neutral500 = Color(0xFF828282)
 val Neutral900 = Color(0xFF2F2F2F)
 val Divider = Color(0xFFE5E5E5)
+
+
+val Colors.Neutral_900
+    @Composable
+    get() = if (isSystemInDarkTheme()) White else Neutral900

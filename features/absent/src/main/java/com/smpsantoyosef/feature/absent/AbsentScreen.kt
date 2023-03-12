@@ -30,7 +30,7 @@ import androidx.navigation.compose.rememberNavController
 import com.smpsantoyosef.common.components.BaseButton
 import com.smpsantoyosef.feature.absent.components.AbsentMaps
 
-import com.smpsantoyosef.feature.absent.components.AbsentRadioButton
+import com.smpsantoyosef.feature.absent.components.BaseRadioButton
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -88,7 +88,7 @@ fun AbsentScreen(
                     BaseText(text = stringResource(R.string.required), fontSize = 16.sp, fontFamily = FontType.LIGHT, fontColor = Color.Red)
                 }
 
-                AbsentRadioButton(items = listOf("Hadir", "Sakit", "Izin"))
+                BaseRadioButton(items = listOf("Hadir", "Sakit", "Izin"))
             }
 
             BaseButton(

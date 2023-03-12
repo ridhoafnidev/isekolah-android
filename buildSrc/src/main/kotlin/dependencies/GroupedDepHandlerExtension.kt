@@ -133,6 +133,15 @@ fun DependencyHandler.addMapsDependencies() {
 }
 
 //endregion
+//region system ui
+
+val systemUiLibrary = listOf(
+    Dependencies.systemUiController
+)
+
+fun DependencyHandler.addSystemUiControllerDependencies() {
+    implementation(systemUiLibrary)
+}
 
 //region deps extentions
 

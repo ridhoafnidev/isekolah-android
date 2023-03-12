@@ -80,5 +80,10 @@ internal object Versions {
     const val serviceLocation = "20.0.0"
 
     //endregion
+    //region system ui controller
+
+    const val systemUiController = "0.28.0"
+
+    //endregion
 
 }

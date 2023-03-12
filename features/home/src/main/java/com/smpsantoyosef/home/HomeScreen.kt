@@ -1,6 +1,9 @@
 package com.smpsantoyosef.home
 
+import android.content.res.Configuration.UI_MODE_NIGHT_NO
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import android.os.Handler
+import android.os.Looper
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -10,6 +13,10 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -25,11 +32,15 @@ import com.smpsantoyosef.common.utils.NavRoute
 import com.smpsantoyosef.data.utils.DummyDatasource
 import com.smpsantoyosef.home.components.HomeProfile
 import com.smpsantoyosef.home.components.VisiMisi
+import com.smpsantoyosef.isekolah.ui.theme.ISekolahTheme
 
 @Composable
 fun HomeScreen(
     navController: NavHostController
 ) {
+    var selected by remember {
+        mutableStateOf("")
+    }
     Column(
         modifier = Modifier.padding(16.dp)
     ){
@@ -40,7 +51,7 @@ fun HomeScreen(
             fontFamily = FontType.MEDIUM,
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(top = 40.dp)
+            modifier = Modifier.padding(top = 30.dp)
         )
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
@@ -51,12 +62,30 @@ fun HomeScreen(
                 items(DummyDatasource.generateMenus()) { menu ->
                     HomeMenu(
                         menu = menu,
+                        onValueChange = {selected = menu.title},
+                        selected = selected == menu.title,
                         onItemClick = { menu ->
                             when(menu.title) {
-                                "Absensi" -> navController.navigate(NavRoute.absentScreen)
-                                "Catatan" -> navController.navigate(NavRoute.noteScreen)
-                                "Nilai" -> {}
-                                "Ujian" -> {}
+                                "Absensi" -> {
+                                    Handler(Looper.getMainLooper()).postDelayed({
+                                        navController.navigate(NavRoute.absentScreen)
+                                    }, 200)
+                                }
+                                "Catatan" -> {
+                                    Handler(Looper.getMainLooper()).postDelayed({
+                                        navController.navigate(NavRoute.noteScreen)
+                                    }, 200)
+                                }
+                                "Nilai" -> {
+                                    Handler(Looper.getMainLooper()).postDelayed({
+                                        navController.navigate(NavRoute.scoreScreen)
+                                    }, 200)
+                                }
+                                "Ujian" -> {
+                                    Handler(Looper.getMainLooper()).postDelayed({
+                                        navController.navigate(NavRoute.listExamScreen)
+                                    }, 200)
+                                }
                             }
                         }
                     )
@@ -65,11 +94,19 @@ fun HomeScreen(
         )
     }
 }
-@Preview(uiMode = UI_MODE_NIGHT_YES)
+
+fun navigateDelay(navigate: Unit) {
+    Handler(Looper.getMainLooper()).postDelayed({
+        navigate
+    }, 2000)
+}
+
+@Preview(uiMode = UI_MODE_NIGHT_YES, showBackground = true, name = "Dark")
+@Preview(uiMode = UI_MODE_NIGHT_NO, showBackground = true, name = "Light")
 @Composable
 fun HomeScreenPreview() {
     val navHostController = rememberNavController()
-    Surface() {
+    ISekolahTheme() {
         HomeScreen(navHostController)
     }
 }

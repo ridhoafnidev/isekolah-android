@@ -3,6 +3,7 @@ package com.smpsantoyosef.data.utils
 import com.smpsantoyosef.common.R
 import com.smpsantoyosef.entity.Menu
 import com.smpsantoyosef.entity.Absent
+import com.smpsantoyosef.entity.Exam
 import com.smpsantoyosef.entity.Note
 import com.smpsantoyosef.entity.Score
 
@@ -46,5 +47,21 @@ object DummyDatasource {
         Score("Mata Pelajaran", "Matematika"),
         Score("Mata Pelajaran", "Matematika"),
         Score("Mata Pelajaran", "Matematika"),
+    )
+
+    fun generateExams() = arrayListOf<Exam>(
+        Exam(1, "Ujian tengah semester", "Semester 1", dateTime = "Rabu, 8 Februari 2023 - 13:30 WIB", time = "90 menit"),
+        Exam(2, "Ujian tengah semester", "Semester 2", dateTime = "Rabu, 8 Februari 2023 - 13:30 WIB", time = "90 menit"),
+        Exam(3, "Ujian akhir semester", "Semester 1",  dateTime = "Rabu, 8 Februari 2023 - 13:30 WIB", time = "90 menit"),
+        Exam(4, "Ujian akhir semester", "Semester 2",  dateTime = "Rabu, 8 Februari 2023 - 13:30 WIB", time = "90 menit"),
+        Exam(5, "Ujian akhir semester", "Semester 2",  dateTime = "Rabu, 8 Februari 2023 - 13:30 WIB", time = "90 menit"),
+        Exam(6, "Ujian akhir semester", "Semester 2", dateTime = "Rabu, 8 Februari 2023 - 13:30 WIB", time = "90 menit"),
+        Exam(7, "Ujian akhir semester", "Semester 2", dateTime = "Rabu, 8 Februari 2023 - 13:30 WIB", time = "90 menit"),
+        Exam(8, "Ujian akhir semester", "Semester 2", dateTime = "Rabu, 8 Februari 2023 - 13:30 WIB", time = "90 menit"),
+        Exam(9, "Ujian akhir semester", "Semester 2", dateTime = "Rabu, 8 Februari 2023 - 13:30 WIB", time = "90 menit"),
+        Exam(10, "Ujian akhir semester", "Semester 2", dateTime = "Rabu, 8 Februari 2023 - 13:30 WIB", time = "90 menit"),
+        Exam(11, "Ujian akhir semester", "Semester 2", dateTime = "Rabu, 8 Februari 2023 - 13:30 WIB", time = "90 menit"),
+        Exam(12, "Ujian akhir semester", "Semester 2", dateTime = "Rabu, 8 Februari 2023 - 13:30 WIB", time = "90 menit"),
+        Exam(13, "Ujian akhir semester", "Semester 2", dateTime = "Rabu, 8 Februari 2023 - 13:30 WIB", time = "90 menit"),
     )
 }

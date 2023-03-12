@@ -19,6 +19,7 @@ internal val androidComposeDependencies = listOf(
     Dependencies.composeNavigation,
     Dependencies.composePager,
     Dependencies.composePagerIndicator,
+    Dependencies.systemUiController,
 )
 
 internal val androidxLifeCycleDependencies = listOf(

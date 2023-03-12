@@ -1,5 +1,7 @@
 package com.smpsantoyosef.home.components
 
+import android.content.res.Configuration.UI_MODE_NIGHT_NO
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -11,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -26,6 +29,7 @@ import androidx.compose.ui.unit.sp
 import com.smpsantoyosef.common.ui.theme.fontMedium
 import com.smpsantoyosef.common.ui.theme.fontRegular
 import com.smpsantoyosef.home.R
+import com.smpsantoyosef.isekolah.ui.theme.ISekolahTheme
 import com.smpsantoyosef.isekolah.ui.theme.Neutral300
 import com.smpsantoyosef.isekolah.ui.theme.Neutral900
 import com.smpsantoyosef.common.R as commonR
@@ -37,7 +41,7 @@ fun HomeProfile(
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .background(Color.White),
+            .background(MaterialTheme.colorScheme.background),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ) {
@@ -64,7 +68,7 @@ fun HomeProfile(
             Text(
                 text = stringResource(R.string.welcome),
                 fontFamily = fontRegular,
-                color = Neutral300,
+                color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.5f),
                 fontSize = 14.sp
             )
             Text(
@@ -73,15 +77,18 @@ fun HomeProfile(
                     .padding(top = 4.dp, end = 8.dp),
                 text = stringResource(R.string.welcome),
                 fontFamily = fontMedium,
-                color = Neutral900,
+                color = MaterialTheme.colorScheme.onBackground,
                 fontSize = 20.sp
             )
         }
     }
 }
 
-@Preview
+@Preview(showBackground = true, uiMode = UI_MODE_NIGHT_NO, name = "Dark")
+@Preview(showBackground = true, uiMode = UI_MODE_NIGHT_YES, name = "Light")
 @Composable
 fun HomeProfilePreview() {
-    HomeProfile()
+    ISekolahTheme {
+        HomeProfile()
+    }
 }

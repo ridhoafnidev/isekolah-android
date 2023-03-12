@@ -1,11 +1,12 @@
 package com.smpsantoyosef.common.components
 
+import android.content.res.Configuration.UI_MODE_NIGHT_NO
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.annotation.DrawableRes
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
-import androidx.compose.material.Text
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
@@ -19,6 +20,10 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.smpsantoyosef.common.R
+import com.smpsantoyosef.isekolah.ui.theme.ISekolahTheme
+import com.smpsantoyosef.isekolah.ui.theme.Neutral300
+import com.smpsantoyosef.isekolah.ui.theme.Neutral900
+import com.smpsantoyosef.isekolah.ui.theme.Neutral_900
 
 @Composable
 fun BaseAppBar(
@@ -27,28 +32,37 @@ fun BaseAppBar(
     modifier: Modifier = Modifier,
     @DrawableRes menuIconResource: Int? = null,
     elevation: Dp = 2.dp,
+    subTitle: String? = null,
     onMenuClick: () -> Unit,
 ) {
     TopAppBar(
         title = {
-            BaseText(
-                text = title,
-                fontFamily = FontType.MEDIUM,
-                fontSize = 24.sp
-            )
+            Column {
+                BaseText(
+                    text = subTitle?.let { title.uppercase() } ?: title,
+                    fontFamily = subTitle?.let { FontType.MEDIUM } ?: FontType.SEMI_BOLD,
+                    fontSize = subTitle?.let { 16.sp } ?: 24.sp,
+                    fontColor = subTitle?.let { Neutral300 } ?: Neutral900
+                )
+                subTitle?.let { subtitle ->
+                    BaseText(
+                        text = subtitle,
+                        fontFamily = FontType.MEDIUM,
+                        fontSize = 16.sp,
+                        fontColor = MaterialTheme.colors.Neutral_900
+                    )
+                }
+            }
         },
         elevation = elevation,
         navigationIcon = {
-            Icon(
-                imageVector = Icons.Default.ArrowBack,
-                contentDescription = stringResource(R.string.img_desc_icon_back),
-                modifier = modifier
-                    .clickable {
-                        onClickBack()
-                    }
-                    .padding(16.dp),
-                tint = Color.Black
-            )
+            IconButton(onClick = { onClickBack() }) {
+                Icon(
+                    imageVector = Icons.Default.ArrowBack,
+                    contentDescription = stringResource(R.string.img_desc_icon_back),
+                    tint = Color.Black
+                )
+            }
         },
         actions = {
             if (menuIconResource != null) IconButton(onClick = { onMenuClick() }) {
@@ -63,8 +77,11 @@ fun BaseAppBar(
     )
 }
 
-@Preview
+@Preview(uiMode = UI_MODE_NIGHT_NO, showBackground = true, name = "dark")
+@Preview(uiMode = UI_MODE_NIGHT_YES, showBackground = true, name = "light")
 @Composable
 fun AppBarPreview() {
-    BaseAppBar("Title", onClickBack = {}, onMenuClick = {})
+    ISekolahTheme() {
+        BaseAppBar("Title", onClickBack = {}, onMenuClick = {})
+    }
 }

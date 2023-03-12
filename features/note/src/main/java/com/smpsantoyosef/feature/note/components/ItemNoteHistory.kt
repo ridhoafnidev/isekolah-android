@@ -18,6 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.smpsantoyosef.common.components.BaseText
+import com.smpsantoyosef.common.components.FontType
 import com.smpsantoyosef.entity.Menu
 import com.smpsantoyosef.entity.Note
 import com.smpsantoyosef.feature.note.R
@@ -73,7 +74,7 @@ fun <T>ItemNoteHistory(
             )
             BaseText(
                 text = note.note,
-                fontWeight = FontWeight.Bold,
+                fontFamily = FontType.SEMI_BOLD,
                 fontSize = 20.sp,
                 modifier = modifier
                     .padding(top = 8.dp)

@@ -18,8 +18,7 @@ fun TabContentScreen(
 ) {
     Column(
         modifier = Modifier
-            .fillMaxSize()
-            .padding(top = 24.dp),
+            .fillMaxSize(),
         horizontalAlignment = Alignment.Start,
         verticalArrangement = Arrangement.Top
     ) {

@@ -5,18 +5,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeContentPadding
-import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -27,9 +21,9 @@ import com.smpsantoyosef.common.components.BaseText
 import com.smpsantoyosef.isekolah.ui.theme.Primary
 
 @Composable
-fun AbsentRadioButton(items: List<String>, modifier: Modifier = Modifier) {
+fun BaseRadioButton(items: List<String>, isColumn: Boolean = false, modifier: Modifier = Modifier) {
     val (selectedOption, onOptionSelected) = remember { mutableStateOf(items[0]) }
-    Row(
+    if (!isColumn) Row(
         modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.Start
     ) {
@@ -48,12 +42,29 @@ fun AbsentRadioButton(items: List<String>, modifier: Modifier = Modifier) {
             }
         }
     }
+    else Column(
+        modifier = modifier.fillMaxWidth(),
+    ) {
+        items.forEach { mItem ->
+            Row(
+                verticalAlignment = Alignment.CenterVertically,   
+            ) {
+                RadioButton(
+                    selected = (selectedOption == mItem),
+                    onClick = { onOptionSelected(mItem) },
+                    enabled = true,
+                    colors = RadioButtonDefaults.colors(selectedColor = Primary, unselectedColor = Color.Gray)
+                )
+                BaseText(text = mItem, fontSize = 12.sp, modifier = modifier)
+            }
+        }
+    }
 }
 
 @Preview
 @Composable
-fun AbsentRadioButtonPreview() {
+fun BaseRadioButtonPreview() {
     Surface() {
-        AbsentRadioButton(listOf("Hadir", "Sakit", "Alfa"))
+        BaseRadioButton(listOf("Hadir", "Sakit", "Alfa"))
     }
 }

@@ -14,3 +14,6 @@ val fontMedium = FontFamily(
 val fontRegular = FontFamily(
     Font(R.font.poppins_regular, weight = FontWeight.Normal),
 )
+val fontSemiBold = FontFamily(
+    Font(R.font.poppins_semi_bold, weight = FontWeight.SemiBold),
+)

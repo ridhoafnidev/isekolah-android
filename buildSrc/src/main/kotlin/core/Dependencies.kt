@@ -33,6 +33,9 @@ internal object Dependencies {
     // splashscreen
     const val splashScreen = "androidx.core:core-splashscreen:${Versions.splashScreen}"
 
+    // system ui controller
+    const val systemUiController = "com.google.accompanist:accompanist-systemuicontroller:${Versions.systemUiController}"
+
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofitVersion}"
     const val rxJava3adapter = "com.squareup.retrofit2:adapter-rxjava3:${Versions.retrofitVersion}"
     const val retrofitGsonConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofitVersion}"
