@@ -62,7 +62,7 @@ fun ExamList(data: ArrayList<Exam>, navController: NavHostController) {
             items(data) { exam ->
                 ItemExam(data = exam, onValueChange = { selected = exam.id }, selected = selected == exam.id, onItemClick = {
                     Handler(Looper.getMainLooper()).postDelayed({
-                        navController.navigate(NavRoute.detailExamScreen)
+                        navController.navigate(NavRoute.tokeExamScreen)
                     }, 200)
                 })
             }

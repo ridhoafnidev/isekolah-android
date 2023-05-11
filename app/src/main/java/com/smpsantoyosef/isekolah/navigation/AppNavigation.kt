@@ -8,7 +8,7 @@ import com.smpsantoyosef.common.utils.NavRoute
 import com.smpsantoyosef.feature.absent.AbsentScreen
 import com.smpsantoyosef.feature.auth.ui.screen.login.LoginScreen
 import com.smpsantoyosef.feature.auth.ui.screen.register.RegisterScreen
-import com.smpsantoyosef.feature.exam.DetailExamPage
+//import com.smpsantoyosef.feature.exam.DetailExamPage
 import com.smpsantoyosef.feature.exam.ListExamPage
 import com.smpsantoyosef.feature.exam.TestPage
 import com.smpsantoyosef.feature.exam.TokenPage
@@ -41,12 +41,9 @@ fun AppNavigation() {
         composable(NavRoute.listExamScreen){
             ListExamPage(navController)
         }
-        composable(NavRoute.detailExamScreen){
-            DetailExamPage(navController)
-        }
-        composable(NavRoute.detailExamScreen){
-            DetailExamPage(navController)
-        }
+//        composable(NavRoute.detailExamScreen){
+//            DetailExamPage(navController)
+//        }
         composable(NavRoute.tokeExamScreen){
             TokenPage(navController)
         }
