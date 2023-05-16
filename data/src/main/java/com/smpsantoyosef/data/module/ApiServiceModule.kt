@@ -1,7 +1,6 @@
 package com.smpsantoyosef.data.module
 
-import com.smpsantoyosef.data.remote.service.GithubService
-import com.smpsantoyosef.di.qualifier.AppBaseUrl
+import com.smpsantoyosef.data.remote.service.AuthService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,10 +10,12 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object ApiServiceModule {
+class ApiServiceModule {
+
     @Provides
     @Singleton
-    fun provideApiService(@AppBaseUrl retrofit: Retrofit): GithubService {
-        return retrofit.create(GithubService::class.java)
+    fun provideAuthService(retrofit: Retrofit): AuthService {
+        return retrofit.create(AuthService::class.java)
     }
+
 }

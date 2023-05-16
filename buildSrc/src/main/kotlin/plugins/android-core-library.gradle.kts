@@ -19,6 +19,11 @@ android{
             useSupportLibrary = true
         }
     }
+    buildTypes {
+        debug {
+            buildConfigField("String", "BASE_URL", "\"http://192.168.43.81:8000/api/\"")
+        }
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8

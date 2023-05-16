@@ -1,14 +1,15 @@
 package com.smpsantoyosef.isekolah.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.smpsantoyosef.common.utils.NavRoute
 import com.smpsantoyosef.feature.absent.AbsentScreen
+import com.smpsantoyosef.feature.auth.ui.screen.AuthViewModel
 import com.smpsantoyosef.feature.auth.ui.screen.login.LoginScreen
 import com.smpsantoyosef.feature.auth.ui.screen.register.RegisterScreen
-//import com.smpsantoyosef.feature.exam.DetailExamPage
 import com.smpsantoyosef.feature.exam.ListExamPage
 import com.smpsantoyosef.feature.exam.TestPage
 import com.smpsantoyosef.feature.exam.TokenPage
@@ -21,7 +22,8 @@ fun AppNavigation() {
     val navController = rememberNavController();
     NavHost(navController = navController, startDestination = NavRoute.loginScreen) {
         composable(NavRoute.loginScreen){
-            LoginScreen(navController)
+            val viewModel: AuthViewModel = hiltViewModel()
+            LoginScreen(navController, viewModel)
         }
         composable(NavRoute.registerScreen){
             RegisterScreen(navController)

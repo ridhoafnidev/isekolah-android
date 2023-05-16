@@ -2,7 +2,7 @@ package com.smpsantoyosef.di.module
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.smpsantoyosef.di.qualifier.AppBaseUrl
+import com.smpsantoyosef.di.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,14 +17,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitModule {
 
     @Provides
-    @AppBaseUrl
     fun provideRetrofit(
-        @AppBaseUrl baseUrl: String,
         okHttpClient: OkHttpClient,
         factory: GsonConverterFactory
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(baseUrl)
+            .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(factory)
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())

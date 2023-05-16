@@ -12,7 +12,9 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.smpsantoyosef.isekolah.navigation.AppNavigation
 import com.smpsantoyosef.isekolah.ui.theme.ISekolahTheme
 import com.smpsantoyosef.isekolah.ui.theme.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
     private val viewModel: MainViewModel by viewModels()

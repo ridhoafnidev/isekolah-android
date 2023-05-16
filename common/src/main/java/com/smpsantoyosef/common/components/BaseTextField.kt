@@ -95,7 +95,6 @@ fun BaseTextField(
     }
 }
 
-enum class Key
 
 @Preview
 @Composable

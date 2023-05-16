@@ -1,6 +1,6 @@
 package com.smpsantoyosef.feature.auth.ui.screen.login
 
-import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -17,31 +17,67 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import com.smpsantoyosef.common.components.BaseButton
 import com.smpsantoyosef.common.components.BaseTextField
 import com.smpsantoyosef.common.ui.theme.fontRegular
 import com.smpsantoyosef.common.utils.NavRoute
 import com.smpsantoyosef.feature.auth.R
+import com.smpsantoyosef.feature.auth.ui.screen.AuthViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginScreen(
     navHostController: NavHostController,
+    viewModel: AuthViewModel
 ) {
 
-    var nisn by rememberSaveable { mutableStateOf("") }
+    var username by rememberSaveable { mutableStateOf("") }
     var password by rememberSaveable { mutableStateOf("") }
+
+    val userLoginResponse by viewModel.loginScreenState.collectAsState()
+    val storeUserResponse by viewModel.userStoreResponse.collectAsState()
+    val context = LocalContext.current
+    
+    LaunchedEffect(userLoginResponse) {
+        when(userLoginResponse) {
+            is LoginScreenState.Success -> {
+                (userLoginResponse as LoginScreenState.Success).user.let { user ->
+                    with(user) {
+                        viewModel.storeUser(this)
+                        viewModel.storeId(this.id)
+                        viewModel.storeToken(this.token)
+                        viewModel.storeUsername(user.username)
+                    }
+                }
+            }
+           is LoginScreenState.Loading -> {
+
+           }
+           is LoginScreenState.Error -> {
+               Toast.makeText(context, (userLoginResponse as LoginScreenState.Error).message, Toast.LENGTH_SHORT).show()
+           }
+           else -> Unit
+
+        }
+    }
+
+    LaunchedEffect(storeUserResponse) {
+        if (storeUserResponse) {
+            navHostController.navigate(NavRoute.homeScreen)
+        }
+    }
 
     Scaffold(
         modifier = Modifier.fillMaxWidth(),
@@ -56,10 +92,10 @@ fun LoginScreen(
             ) {
                 BaseTextField(
                     modifier = Modifier.padding(contentPadding),
-                    value = nisn,
+                    value = username,
                     title = stringResource(R.string.nisn),
                     keyboardType = KeyboardType.Number,
-                    onValueChange = {nisn = it},
+                    onValueChange = {username = it},
                     placeholder = stringResource(R.string.hint_nisn)
                 )
                 BaseTextField(
@@ -80,11 +116,12 @@ fun LoginScreen(
                         .fillMaxWidth(),
                     text = stringResource(R.string.login))
                 {
-                    navHostController.navigate(NavRoute.homeScreen)
+                    viewModel.login(username, password)
                 }
             }
             Text(
-                modifier = Modifier.align(Alignment.BottomCenter)
+                modifier = Modifier
+                    .align(Alignment.BottomCenter)
                     .padding(bottom = 24.dp)
                     .padding(horizontal = 72.dp),
                 textAlign = TextAlign.Center,
@@ -97,9 +134,9 @@ fun LoginScreen(
     }
 }
 
-@Preview(uiMode = UI_MODE_NIGHT_YES)
+/*@Preview(uiMode = UI_MODE_NIGHT_YES)
 @Composable
 fun LoginScreenPreview() {
     val navController = rememberNavController();
     LoginScreen(navController)
-}
+}*/

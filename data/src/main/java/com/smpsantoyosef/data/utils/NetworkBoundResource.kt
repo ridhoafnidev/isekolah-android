@@ -1,6 +1,7 @@
 package com.smpsantoyosef.data.utils
 
 import com.google.gson.JsonParser
+import com.smpsantoyosef.domain.utils.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -15,38 +16,25 @@ import timber.log.Timber
 import java.io.IOException
 import java.net.SocketTimeoutException
 
-suspend fun<ResultType> apiCall(api: suspend() -> Response<ResultType>): Flow<Result<ResultType>> {
+suspend fun<ResultType> apiCall(api: suspend() -> ResultType): Flow<Resource<ResultType>> {
     return withContext(Dispatchers.IO) {
         flow {
-            emit(Result.Loading())
-            val response: Response<ResultType> = api.invoke()
-            if (response.isSuccessful) {
-                response.body()?.let {
-                    emit(Result.Success(data = it))
-                } ?: emit(Result.Error(message = "Unknown error occurred"))
-            } else {
-                emit(
-                    Result.Error(
-                        message = parserErrorBody(response.errorBody()),
-                    )
-                )
+            emit(Resource.Loading)
+            try {
+                emit(Resource.Success(api.invoke()))
+            }
+            catch (e: Throwable) {
+                emit(Resource.Error(msg = message(e)))
             }
         }.catch { error ->
             Timber.e(error.localizedMessage)
-            emit(Result.Loading())
+            emit(Resource.Loading)
             delay(5)
-            emit(Result.Error(message = message(error)))
+            emit(Resource.Error(msg = message(error)))
         }
     }
 }
 
-internal fun parserErrorBody(response: ResponseBody?):String{
-    return response?.let {
-        val errorMessage = JsonParser.parseString(it.string()).asJsonObject["message"].asString
-        errorMessage.ifEmpty { "Whoops! Something went wrong. Please try again." }
-        errorMessage
-    }?:"Whoops! Unknown error occurred. Please try again"
-}
 inline fun message(throwable: Throwable?):String{
     when (throwable) {
         is SocketTimeoutException -> return "Whoops! Connection time out. Please try again"

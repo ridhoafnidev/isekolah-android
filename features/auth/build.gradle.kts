@@ -1,3 +1,5 @@
+import dependencies.addApiResponseModule
+
 plugins {
     plugins.`android-feature-library`
 }
@@ -7,4 +9,5 @@ android {
 }
 
 dependencies {
+    addApiResponseModule(configurationName = "api")
 }
