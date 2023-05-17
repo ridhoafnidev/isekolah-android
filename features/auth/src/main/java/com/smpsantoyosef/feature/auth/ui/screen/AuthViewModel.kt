@@ -29,6 +29,9 @@ class AuthViewModel @Inject constructor(
         viewModelScope.launch {
             authUseCase.execute(AuthUseCase.Params(username, password)).collect { result ->
                 when (result) {
+                    is Resource.Loading -> {
+                        _loginScreenState.value = LoginScreenState.Loading
+                    }
                     is Resource.Success -> {
                         _loginScreenState.value = LoginScreenState.Success(result.data)
                     }
