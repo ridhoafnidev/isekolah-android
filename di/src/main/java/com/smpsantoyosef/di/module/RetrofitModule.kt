@@ -17,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitModule {
 
     @Provides
-    fun provideRetrofit(
+    fun provRetrofit(
         okHttpClient: OkHttpClient,
         factory: GsonConverterFactory
     ): Retrofit {
