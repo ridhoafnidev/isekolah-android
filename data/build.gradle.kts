@@ -12,7 +12,7 @@ android {
 }
 
 dependencies {
-    addApiResponseModule(configurationName = "api")
+    addApiResponseModule()
     addDiModule()
     addDomainModule()
     addCommonModule()
